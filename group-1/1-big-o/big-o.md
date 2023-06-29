@@ -38,7 +38,7 @@ But, 경우에 따라 맞을 수도 틀릴 수도 있다.
 
 * 상수가 얼마나 큰지 or 선형식이 얼마나 천천히 증가하는지에 관계없이 숫자가 커지다 보면 선형식은 언젠가 상수를 뛰어넘게 된다.
 
-![](<../../.gitbook/assets/image (6).png>)
+![](<../../.gitbook/assets/image (7).png>)
 
 * 그 밖의 다양한 실행 시간
   * O(log N)
@@ -136,7 +136,7 @@ int sum(int n) {
 
 해당 코드는 호출될 때마다 스택의 깊이가 깊어진다.
 
-![](<../../.gitbook/assets/image (1).png>)
+![](<../../.gitbook/assets/image (11).png>)
 
 전부 호출 스택에 더해지고 **실제 메모리 공간**을 잡아 먹는다.
 
@@ -184,7 +184,7 @@ int pairSum(int a, int b) {
 
 * big-O 시간 증가율 그래프
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (3).png>)
 
 
 
@@ -282,7 +282,7 @@ for (int a : arrA) {
 
 
 
-* 💡 밑이 다른 로그는 **상수항** 만큼 차이가 나므로 big-O 표현식에서는 대부분 로그의 밑은 무시한다.![](<../../.gitbook/assets/image (4).png>)
+* 💡 밑이 다른 로그는 **상수항** 만큼 차이가 나므로 big-O 표현식에서는 대부분 로그의 밑은 무시한다.![](../../.gitbook/assets/image.png)
 
 
 
@@ -303,7 +303,7 @@ int f(int n) {
 
 
 
-![](<../../.gitbook/assets/image (11).png>)
+![](<../../.gitbook/assets/image (10).png>)
 
 * 전체 노드의 개수
 
