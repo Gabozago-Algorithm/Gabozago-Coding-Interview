@@ -4,7 +4,6 @@
 
 ## Group 1
 
-* [Page 2](group-1/page-2.md)
 * [1) 빅오(Big-O) 표기법](group-1/1-big-o/README.md)
   * [🐣 빅오(Big-O) 표기법 : 이론](group-1/1-big-o/big-o.md)
   * [🐢 빅오(Big-O) 표기법 : 이론](group-1/1-big-o/big-o-1.md)
@@ -12,3 +11,5 @@
   * [🐣 빅오(Big-O) 표기법 : 이론](group-1/2/big-o.md)
   * [🐢 배열 : 이론](group-1/2/undefined.md)
   * [🐢 배열 : 구현](group-1/2/undefined-1.md)
+* [3) 링크드 리스트](group-1/3/README.md)
+  * [🐢 링스크 리스트 : 이론](group-1/3/undefined.md)
