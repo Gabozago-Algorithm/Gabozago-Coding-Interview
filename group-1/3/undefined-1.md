@@ -1,91 +1,134 @@
-# 🐣 링크드 리스트 : 이론
+# 🐢 링스크 리스트 : 구현
 
+## <mark style="background-color:orange;">**🫧 링크드 리스트 구현하기**</mark>
 
-
-* 연결리스트 : 차례로 연결된 노드를 표현해주는 자료구조
-* 단방향 연결리스트 : 개별 노드 ➡️ 다음 노드
-* 양방향 연결리스트 : 개별 노드 ➡️ 다음 노드 & 이전 노드
-
-
-
-* ⭐️ 시작 지점에서의 아이템 추가 및 삭제 연산이 상수 시간 소요
-
-
-
-### 1. Creating a Linked List
-
-* 단방향 연결리스트 구현 코드
+**➡️** size() - 리스트 안의 데이터 개수를 반환한다.
 
 ```java
-class Node {
-  Node next = null;
-  int data;
-  public Node(int d) {
-    data = d;
-  }
-  void appendToTail(int d){
-    Node end = new Node(d);
-    Node n = this;
-    while(n.next != null){
-      n = n.next;
-    }
-    n.next = end;
-  }
+LinkedList<Integer> list = new LinkedList<Integer>(Arrays.asList(1,2,3));
+System.out.println(list.size()); //list 크기 : 3
+```
+
+**➡️** empty() - 리스트가 비어있다면 true를 반환한다.
+
+```java
+// 리스트가 비었는가
+template <typename E>
+bool SLinkedList<E>::empty() const{
+    return head == NULL;
 }
 ```
 
-* 단방향 연결리스트에서의 고려사항 : `head` 가 바뀌면 어떻게 되는가?
-  * 👉 _`head` 가 바뀌었음에도 어떤 객체는 `head`를 계속 가리키고 있을 수도 있다._
-  * `Node` 클래스를 포함하는 `LinkedList` 클래스를 만든다.(`head Node` 변수에 head를 가리키는 값 저장)
+**➡️** value\_at(index) - index번째 위치의 value을 반환한다. (가장 앞은 0부터 시작한다.)
 
+```cpp
+# declaring array
+a = [18, 22, 33, nil, 5, 6]
 
+puts "values_at() method form : #{a.values_at(2, 4)}\\n\\n"
+// values_at() method form : [33, 5]
+```
 
+**➡️** push\_front(value) - 가장 앞에 value를 추가한다.
 
-
-### 2. Deleting a Node from a Singly Linked List
-
-* 삭제 노드 : n
-  1. `prev.next` 를 `n.next` 로 연결한다.
-  2. (양방향 연결리스트일 경우) `n.next.prev` 를 `n.prev` 로 연결한다.
-
-
-
-* ⚠️ 메모리 관리가 필요한 언어를 사용해 구현하는 경우에는 삭제한 노드에 할당되었던 메모리가 제대로 반환되었는지 확인 필요!
-
-
-
-* 노드 삭제 코드
-
-```java
-Node deleteNode(Node head, int d) {
-  Node n = head;
-  if (n.data == d) {
-    return head. Next;
-  }
-  
-  while (n.next != null) {
-    if (n.next.data == d) {
-      n.next = n.next.next;
-      return head;
-    }
-    n = n.next;
-  }
-  return head;
+```cpp
+int main(void) {
+	list<int> L = { 3, 7 };
+	L.push_front(1); // { 1, 3, 7 }
+	return 0;
 }
 ```
 
-###
+**➡️** pop\_front() - 가장 앞에 있는 것을 제거하고, 그 value를 반환한다.
 
-### 3. The "Runner" Technique
+```cpp
+int main(void) {
+	list<int> L = { 1, 5, 3, 7, 10 }   
+	L.pop_front(); // { 5, 3, 7, 10 }
+	return 0;
+}
+```
 
-* Runner : 연결리스트를 순회할 때 두 개의 포인터를 동시에 사용한다.
-* 한 포인터가 다른 포인터보다 앞서도록 하고 포인터를 움직일 때 지정된 개수 혹은 여러 노드를 한번에 움직일 수 있도록 설정한다.
+**➡️** push\_back(value) - 가장 끝에 value을 추가한다.
 
+```cpp
+int main(void) {
+	list<int> L = { 3, 7 };
+	L.push_back(10); // { 3, 7, 10 }
+	return 0;
+}
+```
 
+**➡️** pop\_back() - 가장 끝에 있는 것을 제거하고, 그 value를 반환한다.
 
-### 4. Recursive Problems
+```cpp
+int main(void) {
+	list<int> L = { 1, 5, 3, 7, 10 }   
+	L.pop_back(); // { 5, 3, 7, 10}
+	return 0;
+}
+```
 
-* 연결리스트 문제 ≒ 재귀 호출
-* ⚠️ 재귀(recursive) 알고리즘은 적어도 $O(n)$의 공간 복잡도를 갖는다!
+**➡️** front() - 가장 앞에 있는 것의 value를 가져온다.
 
-\
+```cpp
+class CircleList{
+public:
+    CircleList(); // 생성자
+    ~CircleList(); // 소멸자
+
+    const string& front() const; // 커서 다음의 원소
+};
+```
+
+**➡️** back() - 가장 끝에 있는 것의 value를 가져온다.
+
+```cpp
+class CircleList{
+public:
+    CircleList(); // 생성자
+    ~CircleList(); // 소멸자
+
+    const string& back() const; // 커서의 원소
+
+};
+```
+
+**➡️** insert(index, value) - index번째 위치에 value를 추가한다. 즉, index번째에 새로 추가된 것이 기존의 index번째에 있던 것을 가리킨다.
+
+```cpp
+list<int>::iterator iterInsertPos = list1.begin();
+list1.insert(iterInsertsPos, 100);    // 첫 번째 위치에 100 넣기
+```
+
+**➡️** erase(index) - index번째에 있는 노드를 삭제한다.
+
+```cpp
+list1.erase(list1.begin());    // list1 첫 번 째 요소 삭제
+```
+
+**➡️** value\_n\_from\_end(n) - 뒤에서부터 n번째에 있는 노드의 value를 반환한다.
+
+**➡️** reverse() - 리스트를 뒤집는다.
+
+```cpp
+public class UnitTest {
+    public static void main(String[] args) {
+        SinglyLinkedList list = new SinglyLinkedList();
+        list.addLast(1);
+        list.addLast(2);
+        list.addLast(3);
+        list.addLast(4);
+
+        System.out.println(list);
+        list.reverse();
+
+        System.out.println(list);
+    }
+}
+
+// 1 -> 2 -> 3 -> 4
+// 4 -> 3 -> 2 -> 1
+```
+
+**➡️** remove\_value(value) - value와 같은 값을 가지는 첫 번째 노드를 제거한다.
