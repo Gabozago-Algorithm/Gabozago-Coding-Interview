@@ -12,7 +12,7 @@
 
 <div align="center">
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt="" width="188"><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt="" width="188"><figcaption></figcaption></figure>
 
 </div>
 
@@ -23,7 +23,7 @@
 
 \-----------------------------------------------------------------------------------------------------
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure>
 
 💖 **big-O**
 
@@ -71,7 +71,7 @@
 
 : 메모리 or 공간
 
-![](<../../.gitbook/assets/image (3).png>)
+![](<../../.gitbook/assets/image (5).png>)
 
 
 
