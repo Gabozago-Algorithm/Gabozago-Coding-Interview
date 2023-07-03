@@ -12,12 +12,12 @@
 
 *   단방향
 
-    ![](../../.gitbook/assets/image.png)
+    ![](<../../.gitbook/assets/image (9).png>)
 
     * 각 노드는 다음 노드 가리킴
 *   양방향
 
-    ![](<../../.gitbook/assets/image (2).png>)
+    ![](../../.gitbook/assets/image.png)
 
     * 각 노드는 다음 노드와 이전 노드를 함께 가리킴
 

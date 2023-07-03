@@ -16,3 +16,6 @@
   * [🐢 링스크 리스트 : 이론](group-1/3/undefined.md)
   * [🐢 링스크 리스트 : 구현](group-1/3/undefined-1.md)
   * [🐣 링크드 리스트 : 이론](group-1/3/undefined-2.md)
+* [4) 스택](group-1/4/README.md)
+  * [🐢 스택 : 이론](group-1/4/undefined.md)
+  * [🐢 스택 : 구현](group-1/4/undefined-1.md)
