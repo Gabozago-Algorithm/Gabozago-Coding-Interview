@@ -20,5 +20,6 @@
   * [🐢 스택 : 이론](group-1/4/undefined.md)
   * [🐢 스택 : 구현](group-1/4/undefined-1.md)
 * [5) 큐](group-1/5/README.md)
-  * [🐢 큐 : 이론](group-1/5/undefined.md)
+  * [🐢 큐 : 이론](group-1/5/undefined/README.md)
+    * [🐢 큐 : 구현](group-1/5/undefined/undefined.md)
 * [Page 1](group-1/page-1.md)
