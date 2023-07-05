@@ -1,91 +1,191 @@
-# 🐣 링크드 리스트 : 이론
+# 🐣 링크드 리스트 : 구현
+
+## LinkedList
+
+* Implement (I did with tail pointer & without):
+  * [x] size() - returns number of data elements in list
+  * [x] empty() - bool returns true if empty
+  * [x] value\_at(index) - returns the value of the nth item (starting at 0 for first)
+  * [x] push\_front(value) - adds an item to the front of the list
+  * [x] pop\_front() - remove front item and return its value
+  * [x] push\_back(value) - adds an item at the end
+  * [x] pop\_back() - removes end item and returns its value
+  * [x] front() - get value of front item
+  * [x] back() - get value of end item
+  * [x] insert(index, value) - insert value at index, so current item at that index is pointed to by new item at index
+  * [x] erase(index) - removes node at given index
+  * [x] value\_n\_from\_end(n) - returns the value of the node at nth position from the end of the list
+  * [x] reverse() - reverses the list
+  * [x] remove\_value(value) - removes the first item in the list with this value
+  * [ ] Doubly-linked List
+    * [Description (video)](https://www.coursera.org/lecture/data-structures/doubly-linked-lists-jpGKD)
+    * No need to implement
 
 
 
-* 연결리스트 : 차례로 연결된 노드를 표현해주는 자료구조
-* 단방향 연결리스트 : 개별 노드 ➡️ 다음 노드
-* 양방향 연결리스트 : 개별 노드 ➡️ 다음 노드 & 이전 노드
+
+
+***
+
+### 🤔 설계 고려사항
+
+* 자료형은 `int`로 한정한다.
+* 맨 처음 생성자를 통해 초기화 링크드 리스트가 생성된다.
 
 
 
-* ⭐️ 시작 지점에서의 아이템 추가 및 삭제 연산이 상수 시간 소요
 
-
-
-### 1. Creating a Linked List
-
-* 단방향 연결리스트 구현 코드
 
 ```java
-class Node {
-  Node next = null;
-  int data;
-  public Node(int d) {
-    data = d;
-  }
-  void appendToTail(int d){
-    Node end = new Node(d);
-    Node n = this;
-    while(n.next != null){
-      n = n.next;
+import java.util.*;
+​
+public class ImplLinkedList {
+    private LinkedList<Integer> LinkedList;
+​
+    public ImplLinkedList() {
+        LinkedList = new LinkedList<>();
     }
-    n.next = end;
-  }
-}
-```
-
-* 단방향 연결리스트에서의 고려사항 : `head` 가 바뀌면 어떻게 되는가?
-  * 👉 _`head` 가 바뀌었음에도 어떤 객체는 `head`를 계속 가리키고 있을 수도 있다._
-  * `Node` 클래스를 포함하는 `LinkedList` 클래스를 만든다.(`head Node` 변수에 head를 가리키는 값 저장)
-
-
-
-
-
-### 2. Deleting a Node from a Singly Linked List
-
-* 삭제 노드 : n
-  1. `prev.next` 를 `n.next` 로 연결한다.
-  2. (양방향 연결리스트일 경우) `n.next.prev` 를 `n.prev` 로 연결한다.
-
-
-
-* ⚠️ 메모리 관리가 필요한 언어를 사용해 구현하는 경우에는 삭제한 노드에 할당되었던 메모리가 제대로 반환되었는지 확인 필요!
-
-
-
-* 노드 삭제 코드
-
-```java
-Node deleteNode(Node head, int d) {
-  Node n = head;
-  if (n.data == d) {
-    return head. Next;
-  }
-  
-  while (n.next != null) {
-    if (n.next.data == d) {
-      n.next = n.next.next;
-      return head;
+​
+    public int size() {
+        return LinkedList.size();
     }
-    n = n.next;
-  }
-  return head;
+​
+    public boolean empty() {
+        return LinkedList.size() == 0;
+    }
+​
+    /**
+     * 입력 인덱스가 범위 밖이면 'IndexOutOfBoundsException' 에러 발생
+     */
+    public int value_at(int index) {
+        if (index >= 0 || index < size()){
+            return LinkedList.get(index);
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+​
+    public void push_front(int value) {
+        LinkedList<Integer> newLinkedList = new LinkedList<>();
+        newLinkedList.push(value);
+​
+        for (int e : LinkedList)
+            newLinkedList.push(e);
+​
+        LinkedList = newLinkedList;
+    }
+​
+    /**
+     * 링크드 리스트가 비었을 경우 'NullPointerException' 에러 발생
+     */
+    public int pop_front() {
+        if (empty()){
+            throw new NullPointerException();
+        }
+        return LinkedList.pollFirst();
+    }
+​
+    public void push_back(int value){
+        LinkedList.push(value);
+    }
+​
+    /**
+     * 링크드 리스트가 비었을 경우 'NullPointerException' 에러 발생
+     */
+    public int pop_back() {
+        if (empty()){
+            throw new NullPointerException();
+        }
+        return LinkedList.poll();
+    }
+​
+    /**
+     * 링크드 리스트가 비었을 경우 'NullPointerException' 에러 발생
+     */
+    public int front() {
+        if (empty()){
+            throw new NullPointerException();
+        }
+        return LinkedList.peekFirst();
+    }
+​
+    /**
+     * 링크드 리스트가 비었을 경우 'NullPointerException' 에러 발생
+     */
+    public int back() {
+        if (empty()){
+            throw new NullPointerException();
+        }
+        return LinkedList.peek();
+    }
+​
+    /**
+     * 입력 인덱스가 범위 밖이면 'IndexOutOfBoundsException' 에러 발생
+     */
+    public void insert(int index, int value) {
+        if (index >= 0 || index < size()){
+            LinkedList<> newLinkedList = new LinkedList<Integer>();
+​
+            for (int i = 0; i < index; i++) {
+                newLinkedList.push(LinkedList.get(i));
+            }
+​
+            newLinkedList.add(index, value);
+​
+            for (int i = index; i <= size(); i++) {
+                newLinkedList.push(LinkedList.get(i));
+            }
+            LinkedList = newLinkedList;
+​
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+​
+    /**
+     * 입력 인덱스가 범위 밖이면 'IndexOutOfBoundsException' 에러 발생
+     */
+    public void erase(int index) {
+        if (index >= 0 || index < size()){
+            LinkedList.remove(index);
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+​
+    /**
+     * 0번째 요소부터 가능 -> 0번째 요소 : 마지막 요소
+     * 입력 인덱스가 범위 밖이면 'IndexOutOfBoundsException' 에러 발생
+     */
+    public int value_v_from_end(int n) {
+        if (n >= 0 || n < size()){
+            return LinkedList.get(size() - 1 - n);
+        } else {
+            throw new IndexOutOfBoundsException();
+        }
+    }
+​
+    public LinkedList<Integer> reverse() {
+        LinkedList<Integer> newLinkedList = new LinkedList<>();
+​
+        for (int e : LinkedList)
+            newLinkedList.add(0, e);
+​
+        return newLinkedList;
+    }
+​
+    /**
+     * 값이 없으면 아무것도 수행하지 않음
+     * 다중 값 존재 시, 맨 앞 요소 제거
+     */
+    public void remove_value(int value) {
+        for (int e : LinkedList){
+            if (e == value)
+                LinkedList.remove(e);
+        }
+    }
 }
+​
 ```
-
-###
-
-### 3. The "Runner" Technique
-
-* Runner : 연결리스트를 순회할 때 두 개의 포인터를 동시에 사용한다.
-* 한 포인터가 다른 포인터보다 앞서도록 하고 포인터를 움직일 때 지정된 개수 혹은 여러 노드를 한번에 움직일 수 있도록 설정한다.
-
-
-
-### 4. Recursive Problems
-
-* 연결리스트 문제 ≒ 재귀 호출
-* ⚠️ 재귀(recursive) 알고리즘은 적어도 $O(n)$의 공간 복잡도를 갖는다!
 
 \
