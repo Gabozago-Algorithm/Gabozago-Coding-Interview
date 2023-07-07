@@ -26,3 +26,6 @@
 * [6) 해시 테이블](group-1/6/README.md)
   * [🐢 해시 테이블 : 이론](group-1/6/undefined.md)
   * [🐢 해시 테이블 : 구현](group-1/6/undefined-1.md)
+* [7) 이진 탐색](group-1/7/README.md)
+  * [🐢 이진 탐색 : 이론](group-1/7/undefined.md)
+  * [🐢 이진 탐색 : 구현](group-1/7/undefined-1.md)
