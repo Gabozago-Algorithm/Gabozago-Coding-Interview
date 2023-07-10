@@ -71,7 +71,7 @@
 
 : 메모리 or 공간
 
-![](<../../.gitbook/assets/image (5).png>)
+![](<../../.gitbook/assets/image (5) (1).png>)
 
 
 
