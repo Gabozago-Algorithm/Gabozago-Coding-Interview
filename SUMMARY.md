@@ -35,3 +35,5 @@
 * [9) 트리 : 이론](group-1/9/README.md)
   * [🐢 트리 : 이론](group-1/9/undefined.md)
   * [🐢 트리 : 구현](group-1/9/undefined-1.md)
+* [10) 이진 탐색 트리](group-1/10/README.md)
+  * [🐢 이진 탐색 트리 : 이론](group-1/10/undefined.md)
